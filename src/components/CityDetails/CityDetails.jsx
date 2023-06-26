@@ -1,4 +1,8 @@
 import { useState, useEffect} from 'react'
+import FeelsLikeCard from '../FeelsLikeCard/FeelsLikeCard'
+import HumidityCard from '../HumidityCard/HumidityCard';
+import PressureCard from '../PressureCard/PressureCard'
+import ConditionCard from '../ConditionCard/ConditionCard';
 export default function CityDetails({activeCity, handleCityDelete}){
     console.log('this is activeCity in CityDetails', activeCity);
 
@@ -22,14 +26,27 @@ export default function CityDetails({activeCity, handleCityDelete}){
                 console.log('this is weatherData in cityDetails', weatherData)
             })
         }
+        setWeatherData(null)
         console.log('this is weatherData in useEffect', weatherData)
     }, [activeCity])
 
-    if(!weatherData) return
+    if(!weatherData) {
+        return (
+            <>
+                <p>Invalid city name</p>
+                <button onClick={handleCityDelete}>Delete City</button>
+            </>
+            
+        )
+    }
 
     return (
         <>
-            {activeCity.name} Details
+            {weatherData.location.name}, {weatherData.location.region},  {weatherData.location.country} {weatherData.current.temp_f} °F
+            <FeelsLikeCard feelsLike={weatherData.current.feelslike_f}/>
+            <HumidityCard humidity={weatherData.current.humidity}/>
+            <PressureCard pressure={weatherData.current.pressure_mb}/>
+            <ConditionCard condition={weatherData.current.condition}/>
             <button onClick={handleCityDelete}>Delete City</button>
         </>
     )
