@@ -4,6 +4,7 @@ import "./App.css";
 import AllCitiesPage from "../AllCitiesPage/AllCitiesPage";
 import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
+import LandingPage from '../LandingPage/LandingPage'; 
 import { getUser } from '../../utilities/users-service'
 
 export default function App() {
@@ -18,6 +19,10 @@ export default function App() {
             <Route
               path="/cities"
               element={<AllCitiesPage user={user}/>}
+            />
+            <Route 
+              path='/'
+              element={<LandingPage />}
             />
           </Routes>
         </>
