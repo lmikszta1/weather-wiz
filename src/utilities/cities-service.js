@@ -6,3 +6,7 @@ export async function createCity(cityData) {
 
     return city;
 }
+
+export async function deleteCity(cityId){
+    return citiesApi.deleteCity(cityId);
+}

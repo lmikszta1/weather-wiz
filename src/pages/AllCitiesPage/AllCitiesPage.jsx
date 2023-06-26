@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { createCity } from "../../utilities/cities-service";
+import { useState, useEffect } from "react";
+import { createCity, deleteCity } from "../../utilities/cities-service";
 import * as citiesAPI from "../../utilities/cities-api";
 import CityList from "../../components/CityList/CityList";
 import CityDetails from '../../components/CityDetails/CityDetails';
@@ -31,6 +31,18 @@ export default function AllCitiesPage({ user }) {
         console.log("newNotetext in handleChange", newCityName);
     }
 
+    async function handleCityDelete(){
+        try{
+            console.log("this is activeCity._id in handleCityChange", activeCity._id)
+            await deleteCity(activeCity._id)
+            const updatedCities = cities.filter(city => city._id !== activeCity._id)
+            setCities(updatedCities)
+            setActiveCity(updatedCities[0])
+        } catch(err){
+            console.log('Error deleting city')
+        }
+    }
+
     useEffect(function () {
         async function getCities() {
             const cities = await citiesAPI.getCities();
@@ -46,7 +58,7 @@ export default function AllCitiesPage({ user }) {
             <div style={{ display: "flex" }}>
                 <div style={{ flex: "1" }}>
                     {/* Render CityDetail component here */}
-                    <CityDetails activeCity={activeCity} />
+                    <CityDetails activeCity={activeCity} handleCityDelete={handleCityDelete}/>
                 </div>
                 <div style={{ flex: "1" }}>
                 <form onSubmit={handleSubmit}>

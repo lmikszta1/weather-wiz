@@ -5,5 +5,6 @@ const citiesCtrl = require("../../controllers/api/cities");
 
 router.post("/", citiesCtrl.createCity);
 router.get("/", citiesCtrl.index);
+router.delete("/:cityId", citiesCtrl.deleteCity);
 
 module.exports = router;
