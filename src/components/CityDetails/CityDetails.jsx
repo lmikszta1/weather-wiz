@@ -1,5 +1,8 @@
-export default function CityDetails(){
+export default function CityDetails({activeCity}){
+    console.log('this is activeCity in CityDetails', activeCity);
     return (
-        <div>City Details</div>
+        <>
+            {activeCity.name} Details
+        </>
     )
 }
