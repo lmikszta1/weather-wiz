@@ -6,7 +6,7 @@ export default function City({ city, setActiveCity, activeCity}) {
             setActiveCity(city)
             console.log('this is activeCity after onClick', activeCity)
         }}>
-            {city}
+            {city.name}
         </li>
     );
 }

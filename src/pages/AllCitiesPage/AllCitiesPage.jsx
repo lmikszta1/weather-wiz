@@ -9,7 +9,6 @@ export default function AllCitiesPage({ user }) {
     const [cities, setCities] = useState([]); 
     const [newCityName, setNewCityName] = useState({ name: "" });
     const [activeCity, setActiveCity] = useState('')
-    const citiesRef = useRef()
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -35,8 +34,7 @@ export default function AllCitiesPage({ user }) {
     useEffect(function () {
         async function getCities() {
             const cities = await citiesAPI.getCities();
-            citiesRef.current = [...new Set(cities.map(city => city.name))]
-            setActiveCity(citiesRef.current[0])
+            setActiveCity(cities[0])
             setCities(cities);
         }
         getCities();
@@ -61,7 +59,7 @@ export default function AllCitiesPage({ user }) {
                 </form>
                 <aside>
                     {/* Render CityList component here */}
-                    <CityList cities={citiesRef.current} activeCity={activeCity} setActiveCity={setActiveCity} />
+                    <CityList cities={cities} activeCity={activeCity} setActiveCity={setActiveCity} />
                 </aside>
             </div>
         </div>
