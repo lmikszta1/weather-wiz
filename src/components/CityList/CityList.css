@@ -1,0 +1,24 @@
+.city-list{
+    color: white;
+    list-style: none;
+    padding: 0;
+    font-size: 1.7vw;
+}
+.city-list li {
+    padding: .6vmin;
+    text-align: center;
+    border-radius: .5vmin;
+    margin-bottom: .5vmin;
+}
+
+.city-list li:hover:not(.active) {
+    cursor: pointer;
+    background-color: orange;
+    color: white;
+}
+
+.city-list li.active {
+    color: black;
+    background-color: tan;
+    border: .1vmin solid darkkhaki;
+}
