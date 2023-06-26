@@ -9,3 +9,7 @@ export async function createCity(cityData) {
 export async function getCities() {
     return sendRequest(BASE_URL);
 }
+
+export async function deleteCity(cityId){
+    return sendRequest(`${BASE_URL}/${cityId}`, "DELETE")
+}
