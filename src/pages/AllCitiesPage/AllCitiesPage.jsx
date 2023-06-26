@@ -71,7 +71,7 @@ export default function AllCitiesPage({ user }) {
                 </form>
                 <aside>
                     {/* Render CityList component here */}
-                    <CityList cities={cities} activeCity={activeCity} setActiveCity={setActiveCity} />
+                    <CityList cities={cities} activeCity={activeCity} setActiveCity={setActiveCity}/>
                 </aside>
             </div>
         </div>
