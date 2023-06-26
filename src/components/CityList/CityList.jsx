@@ -1,19 +1,24 @@
 import City from "../City/City";
-export default function CityList({ cities }) {
+import './CityList.css'
+export default function CityList({ cities, activeCity, setActiveCity}) {
 
-    const cityItems = cities.map((city) => (
+    console.log('this is cities in CityList', cities)
+
+    if(!cities || cities.length === 0 ) {
+        return <p>No cities yet</p>
+    }
+
+    const cityItems = cities.map((city, idx) => (
         <City
-            key={city._id}
+            key={idx}
+            setActiveCity={setActiveCity}
+            activeCity={activeCity}
             city={city}
         />
     ));
     return (
-        <div>
-        {
-        cities.length === 0 ? <p>No cities yet!</p> : <>{cityItems}</>
-        }
-        </div>)
-
-
-
+        <ul className='city-list'>
+            {cityItems}
+        </ul>
+    )
 }

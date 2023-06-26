@@ -1,7 +1,12 @@
-export default function City({ city }) {
+export default function City({ city, setActiveCity, activeCity}) {
     return (
-        <>
-        <div>{city.name}</div>
-        </>
+        <li 
+        className={city === activeCity ? 'active' : ''}
+        onClick={() => {
+            setActiveCity(city)
+            console.log('this is activeCity after onClick', activeCity)
+        }}>
+            {city}
+        </li>
     );
 }

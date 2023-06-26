@@ -1,11 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { createCity } from "../../utilities/cities-service";
 import * as citiesAPI from "../../utilities/cities-api";
 import CityList from "../../components/CityList/CityList";
+import CityDetails from '../../components/CityDetails/CityDetails';
+import './AllCitiesPage.css'
 
 export default function AllCitiesPage({ user }) {
     const [cities, setCities] = useState([]); 
     const [newCityName, setNewCityName] = useState({ name: "" });
+    const [activeCity, setActiveCity] = useState('')
+    const citiesRef = useRef()
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -30,8 +34,10 @@ export default function AllCitiesPage({ user }) {
 
     useEffect(function () {
         async function getCities() {
-        const cities = await citiesAPI.getCities();
-        setCities(cities);
+            const cities = await citiesAPI.getCities();
+            citiesRef.current = [...new Set(cities.map(city => city.name))]
+            setActiveCity(citiesRef.current[0])
+            setCities(cities);
         }
         getCities();
     }, []);
@@ -39,15 +45,26 @@ export default function AllCitiesPage({ user }) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <textarea
-                name="name"
-                value={newCityName.name}
-                onChange={handleChange}
-                />
-                <button type="submit">Add City</button>
-            </form>
-            <CityList cities={cities} />
+            <div style={{ display: "flex" }}>
+                <div style={{ flex: "1" }}>
+                    {/* Render CityDetail component here */}
+                    <CityDetails activeCity={activeCity} />
+                </div>
+                <div style={{ flex: "1" }}>
+                <form onSubmit={handleSubmit}>
+                    <input
+                    name="name"
+                    value={newCityName.name}
+                    onChange={handleChange}
+                    />
+                    <button type="submit">Add City</button>
+                </form>
+                <aside>
+                    {/* Render CityList component here */}
+                    <CityList cities={citiesRef.current} activeCity={activeCity} setActiveCity={setActiveCity} />
+                </aside>
+            </div>
         </div>
+    </div>
     );
 }
