@@ -1,12 +1,11 @@
 export default function HumidityCard({humidity}){
     return (
         <>
-            <div className='humidity-container'>
-                <div className='humidity-card'>
-                    <h1 className='card-title'>Humidity</h1>
-                    <p>{humidity}%</p>
-                </div>
+            <div className='bg-blue-500 rounded-lg p-4 w-32 h-32'>
+                <h1 className='text-lg font-semibold mb-2'>Humidity</h1>
+                <p className="text-xl">{humidity}%</p>
             </div>
         </>
     )
 }
+

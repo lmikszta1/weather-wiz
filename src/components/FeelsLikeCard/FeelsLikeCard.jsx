@@ -1,11 +1,9 @@
 export default function FeelsLikeCard({feelsLike}){
     return (
         <>
-            <div className='feels-like-container'>
-                <div className='feels-like-card'>
-                    <h1 className='card-title'>Feels Like</h1>
-                    <p>{feelsLike} °F</p>
-                </div>
+            <div className='bg-blue-500 rounded-lg p-4 w-32 h-32'>
+                <h1 className='text-lg font-semibold mb-2'>Feels Like</h1>
+                <p className="text-xl">{feelsLike} °F</p>
             </div>
         </>
     )
