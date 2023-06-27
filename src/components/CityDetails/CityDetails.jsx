@@ -3,6 +3,7 @@ import FeelsLikeCard from '../FeelsLikeCard/FeelsLikeCard'
 import HumidityCard from '../HumidityCard/HumidityCard';
 import PressureCard from '../PressureCard/PressureCard'
 import ConditionCard from '../ConditionCard/ConditionCard';
+import './CityDetails.css';
 export default function CityDetails({activeCity, handleCityDelete}){
     console.log('this is activeCity in CityDetails', activeCity);
 
@@ -33,11 +34,11 @@ export default function CityDetails({activeCity, handleCityDelete}){
     
     if(loading){
         return (
-            <>
-                <p>Loading...</p>
-            </>
-            
-        )
+            <div className='loader-wrapper'>
+                <div className="loader">
+                </div>
+            </div>
+        );
     }
     
     if(!weatherData) {
