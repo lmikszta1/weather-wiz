@@ -53,13 +53,13 @@ export default function CityDetails({activeCity, handleCityDelete}){
 
 
     return (
-        <>
+        <div className='detail-container'>
             {weatherData.location.name}, {weatherData.location.region},  {weatherData.location.country} {weatherData.current.temp_f} °F
             <FeelsLikeCard feelsLike={weatherData.current.feelslike_f}/>
             <HumidityCard humidity={weatherData.current.humidity}/>
             <PressureCard pressure={weatherData.current.pressure_mb}/>
             <ConditionCard condition={weatherData.current.condition}/>
             <button onClick={handleCityDelete}>Delete City</button>
-        </>
+        </div>
     )
 }
