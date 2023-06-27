@@ -3,7 +3,6 @@ import { createCity, deleteCity } from "../../utilities/cities-service";
 import * as citiesAPI from "../../utilities/cities-api";
 import CityList from "../../components/CityList/CityList";
 import CityDetails from '../../components/CityDetails/CityDetails';
-import './AllCitiesPage.css'
 
 export default function AllCitiesPage({ user }) {
     const [cities, setCities] = useState([]); 
@@ -54,28 +53,29 @@ export default function AllCitiesPage({ user }) {
 
 
     return (
-        <div>
-            <div style={{ display: "flex" }}>
-                <div style={{ flex: "1" }}>
+        <div className="container mx-auto">
+            <div className="flex">
+                <div className="flex-1">
                     {/* Render CityDetail component here */}
                     <CityDetails activeCity={activeCity} handleCityDelete={handleCityDelete}/>
                 </div>
-                <div className="cityList-wrapper" style={{ flex: "1" }}>
-                <form className="form" onSubmit={handleSubmit}>
-                    <input
-                    placeholder="city name or zip code"
-                    name="name"
-                    value={newCityName.name}
-                    onChange={handleChange}
-                    />
-                    <button type="submit">Add City</button>
-                </form>
-                <aside className="cityList-scroll">
-                    {/* Render CityList component here */}
-                    <CityList cities={cities} activeCity={activeCity} setActiveCity={setActiveCity}/>
-                </aside>
+                <div className="flex-1 max-w-sm pr-10 h-min">
+                    <form className="flex items-end justify-center" onSubmit={handleSubmit}>
+                        <input
+                        className="border border-gray-400 rounded px-4 py-2"
+                        placeholder="city name or zip code"
+                        name="name"
+                        value={newCityName.name}
+                        onChange={handleChange}
+                        />
+                        <button type="submit" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Add City</button>
+                    </form>
+                    <aside className="mt-10 mr-px p-0 overflow-auto w-64 h-96">
+                        {/* Render CityList component here */}
+                        <CityList cities={cities} activeCity={activeCity} setActiveCity={setActiveCity}/>
+                    </aside>
+                </div>
             </div>
         </div>
-    </div>
     );
 }
