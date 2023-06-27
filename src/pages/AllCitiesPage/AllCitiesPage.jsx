@@ -60,16 +60,17 @@ export default function AllCitiesPage({ user }) {
                     {/* Render CityDetail component here */}
                     <CityDetails activeCity={activeCity} handleCityDelete={handleCityDelete}/>
                 </div>
-                <div style={{ flex: "1" }}>
-                <form onSubmit={handleSubmit}>
+                <div className="cityList-wrapper" style={{ flex: "1" }}>
+                <form className="form" onSubmit={handleSubmit}>
                     <input
+                    placeholder="city name or zip code"
                     name="name"
                     value={newCityName.name}
                     onChange={handleChange}
                     />
                     <button type="submit">Add City</button>
                 </form>
-                <aside>
+                <aside className="cityList-scroll">
                     {/* Render CityList component here */}
                     <CityList cities={cities} activeCity={activeCity} setActiveCity={setActiveCity}/>
                 </aside>
