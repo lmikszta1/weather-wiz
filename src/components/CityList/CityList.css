@@ -19,6 +19,7 @@
 
 .city-list li.active {
     color: black;
-    background-color: tan;
-    border: .1vmin solid darkkhaki;
+    background-color: #1D71F2;
+    opacity: 0.7;
+    color: white;
 }
