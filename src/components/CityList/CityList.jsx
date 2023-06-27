@@ -8,7 +8,8 @@ export default function CityList({ cities, activeCity, setActiveCity}) {
         return <p>No cities yet</p>
     }
 
-    const cityItems = cities.map((city, idx) => (
+    const sortedCities = cities.slice().sort((a, b) => a.name.localeCompare(b.name))
+    const cityItems = sortedCities.map((city, idx) => (
         <City
             key={idx}
             setActiveCity={setActiveCity}
