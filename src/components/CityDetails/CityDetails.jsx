@@ -27,9 +27,19 @@ export default function CityDetails({activeCity, handleCityDelete}){
             })
         }
         setWeatherData(null)
+        setLoading(true)
         console.log('this is weatherData in useEffect', weatherData)
     }, [activeCity])
-
+    
+    if(loading){
+        return (
+            <>
+                <p>Loading...</p>
+            </>
+            
+        )
+    }
+    
     if(!weatherData) {
         return (
             <>
@@ -39,6 +49,7 @@ export default function CityDetails({activeCity, handleCityDelete}){
             
         )
     }
+
 
     return (
         <>
