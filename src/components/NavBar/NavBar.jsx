@@ -11,7 +11,7 @@ export default function NavBar({user, setUser}){
     }
 
     return (
-        <nav className='nav-bar body-font'>
+        <nav className='nav-bar body-font w-screen'>
             <Link to="/cities" className='nav-btn'>All Cities</Link>
             &nbsp; | &nbsp;
             <Link to="/" className='nav-btn'>About</Link>
