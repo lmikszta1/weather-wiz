@@ -59,7 +59,7 @@ export default function AllCitiesPage({ user }) {
                     {/* Render CityDetail component here */}
                     <CityDetails activeCity={activeCity} handleCityDelete={handleCityDelete}/>
                 </div>
-                <div className="flex-1 flex flex-col items-center justify-start">
+                <div className="flex-1 flex flex-col items-center justify-start xl:max-h-128 lg:max-h-96">
                     <form className="flex items-end justify-center mb-2" onSubmit={handleSubmit}>
                         <input
                         className="border border-gray-400 rounded px-4 py-2"
@@ -70,7 +70,7 @@ export default function AllCitiesPage({ user }) {
                         />
                         <button type="submit" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Add City</button>
                     </form>
-                    <aside className="mt-5 p-0 overflow-auto w-96 h-96 flex justify-center">
+                    <aside className="mt-5 p-0 overflow-auto w-96 max-h-fill flex justify-center">
                         {/* Render CityList component here */}
                         <CityList cities={cities} activeCity={activeCity} setActiveCity={setActiveCity}/>
                     </aside>
