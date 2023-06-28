@@ -57,7 +57,7 @@ export default function CityDetails({activeCity, handleCityDelete}){
 
     return (
         <div className="flex flex-col place-content-center">
-            <div className="mb-4 text-2xl">
+            <div className="mb-4 text-2xl font-semibold">
                 {weatherData.location.name}, {weatherData.location.region}
             </div>
                 {weatherData.location.country} 
