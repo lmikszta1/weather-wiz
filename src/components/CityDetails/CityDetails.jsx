@@ -73,7 +73,7 @@ export default function CityDetails({activeCity, handleCityDelete}){
                 </div>
             </div>
             <div className='p-10'>
-                <button onClick={handleCityDelete}>Delete City</button>
+                <button className='text-black' onClick={handleCityDelete}>Delete City</button>
             </div>
         </div>
     );
