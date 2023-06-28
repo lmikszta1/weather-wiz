@@ -56,34 +56,18 @@ export default function CityDetails({activeCity, handleCityDelete}){
     }
 
     return (
-        <div className="detail-container">
-        <div className="mb-4">
-            {weatherData.location.name}, {weatherData.location.region},{" "}
-            {weatherData.location.country} {weatherData.current.temp_f} °F
-        </div>
-        <div className="flex flex-wrap">
-            <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/4">
+        <div className="flex flex-col place-content-center">
             <div className="mb-4">
+                {weatherData.location.name}, {weatherData.location.region},{" "}
+                {weatherData.location.country} {weatherData.current.temp_f} °F
+            </div>
+            <div className="grid grid-cols-2 gap-x-1 gap-y-2">
                 <FeelsLikeCard feelsLike={weatherData.current.feelslike_f} />
-            </div>
-            </div>
-            <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/4">
-            <div className="mb-4">
                 <HumidityCard humidity={weatherData.current.humidity} />
-            </div>
-            </div>
-            <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/4">
-            <div className="mb-4">
                 <PressureCard pressure={weatherData.current.pressure_mb} />
+                <ConditionCard condition={weatherData.current.condition} />  
             </div>
-            </div>
-            <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/4">
-            <div className="mb-4">
-                <ConditionCard condition={weatherData.current.condition} />
-            </div>
-            </div>
-        </div>
-        <button onClick={handleCityDelete}>Delete City</button>
+            <button onClick={handleCityDelete}>Delete City</button>
         </div>
     );
 }

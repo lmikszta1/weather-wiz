@@ -53,7 +53,7 @@ export default function AllCitiesPage({ user }) {
 
 
     return (
-        <div className="container mx-auto mx-auto">
+        <div className="container mx-auto">
             <div className="flex flex-nowrap">
                 <div className="flex-1">
                     {/* Render CityDetail component here */}
