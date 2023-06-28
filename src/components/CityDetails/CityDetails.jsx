@@ -61,11 +61,11 @@ export default function CityDetails({activeCity, handleCityDelete}){
                 {weatherData.location.name}, {weatherData.location.region}
             </div>
                 {weatherData.location.country} 
-            <div className='text-6xl p-10 font-bold text-neutral-900'>
+            <div className='text-5xl p-10 font-bold text-neutral-900'>
                 {weatherData.current.temp_f} °F
             </div>
             <div className='max-w-xs place-self-center'>
-                <div className="grid grid-cols-2 gap-x-1 gap-y-2">
+                <div className="grid grid-cols-2 gap-x-2 gap-y-3">
                     <FeelsLikeCard feelsLike={weatherData.current.feelslike_f} />
                     <HumidityCard humidity={weatherData.current.humidity} />
                     <PressureCard pressure={weatherData.current.pressure_mb} />
