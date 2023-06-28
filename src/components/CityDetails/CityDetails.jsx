@@ -57,17 +57,24 @@ export default function CityDetails({activeCity, handleCityDelete}){
 
     return (
         <div className="flex flex-col place-content-center">
-            <div className="mb-4">
-                {weatherData.location.name}, {weatherData.location.region},{" "}
-                {weatherData.location.country} {weatherData.current.temp_f} °F
+            <div className="mb-4 text-2xl">
+                {weatherData.location.name}, {weatherData.location.region}
             </div>
-            <div className="grid grid-cols-2 gap-x-1 gap-y-2">
-                <FeelsLikeCard feelsLike={weatherData.current.feelslike_f} />
-                <HumidityCard humidity={weatherData.current.humidity} />
-                <PressureCard pressure={weatherData.current.pressure_mb} />
-                <ConditionCard condition={weatherData.current.condition} />  
+                {weatherData.location.country} 
+            <div className='text-6xl p-10 font-bold text-neutral-900'>
+                {weatherData.current.temp_f} °F
             </div>
-            <button onClick={handleCityDelete}>Delete City</button>
+            <div className='max-w-xs place-self-center'>
+                <div className="grid grid-cols-2 gap-x-1 gap-y-2">
+                    <FeelsLikeCard feelsLike={weatherData.current.feelslike_f} />
+                    <HumidityCard humidity={weatherData.current.humidity} />
+                    <PressureCard pressure={weatherData.current.pressure_mb} />
+                    <ConditionCard condition={weatherData.current.condition} />  
+                </div>
+            </div>
+            <div className='p-10'>
+                <button onClick={handleCityDelete}>Delete City</button>
+            </div>
         </div>
     );
 }
