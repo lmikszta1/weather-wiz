@@ -17,6 +17,8 @@ export default function CityList({ cities, activeCity, setActiveCity}) {
             city={city}
         />
     ));
+
+
     return (
         <ul className='city-list'>
             {cityItems}
