@@ -22,3 +22,9 @@
 .blue-scroll{
     scrollbar-color: #19C3FB #1D71F2;
 }
+
+
+.scrollable-menu{
+    max-height: 200px;
+    overflow-y: auto;
+}
