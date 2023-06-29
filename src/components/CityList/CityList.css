@@ -10,6 +10,8 @@
     border-radius: .5vmin;
     margin-bottom: .5vmin;
     border: 1px solid black;
+    background: white;
+    color:black;
 }
 
 .city-list li:hover:not(.active) {
