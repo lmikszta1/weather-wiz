@@ -59,7 +59,7 @@ export default function AllCitiesPage({ user }) {
                     {/* Render CityDetail component here */}
                     <CityDetails activeCity={activeCity} handleCityDelete={handleCityDelete}/>
                 </div>
-                <div className="flex-1 flex flex-col items-center justify-start xl:max-h-128 lg:max-h-96">
+                <div className="flex-1 flex flex-col items-center justify-start md:max-h-72 xl:max-h-128 lg:max-h-96">
                     <form className="flex items-end justify-center mb-2" onSubmit={handleSubmit}>
                         <input
                         className="border border-gray-400 rounded px-4 py-2"
