@@ -3,7 +3,21 @@ import FeelsLikeCard from '../FeelsLikeCard/FeelsLikeCard'
 import HumidityCard from '../HumidityCard/HumidityCard';
 import PressureCard from '../PressureCard/PressureCard'
 import ConditionCard from '../ConditionCard/ConditionCard';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import './CityDetails.css';
+import { useMediaQuery } from 'react-responsive'
+
+const Desktop = ({ children }) => {
+    const isDesktop = useMediaQuery({ minWidth: 992 })
+    return isDesktop ? children : null
+}
+const Mobile = ({ children }) => {
+    const isMobile = useMediaQuery({ maxWidth: 991 })
+    return isMobile ? children : null
+}
+
 export default function CityDetails({activeCity, handleCityDelete}){
     console.log("this is activeCity in CityDetails", activeCity);
 
@@ -56,25 +70,71 @@ export default function CityDetails({activeCity, handleCityDelete}){
     }
 
     return (
-        <div className="flex flex-col place-content-center">
-            <div className="mb-4 text-2xl font-semibold">
-                {weatherData.location.name}, {weatherData.location.region}
-            </div>
-                {weatherData.location.country} 
-            <div className='text-5xl p-10 font-bold text-neutral-900'>
-                {weatherData.current.temp_f} °F
-            </div>
-            <div className='max-w-xs place-self-center'>
-                <div className="grid grid-cols-2 gap-x-2 gap-y-3">
-                    <FeelsLikeCard feelsLike={weatherData.current.feelslike_f} />
-                    <HumidityCard humidity={weatherData.current.humidity} />
-                    <PressureCard pressure={weatherData.current.pressure_mb} />
-                    <ConditionCard condition={weatherData.current.condition} />  
+        <>
+            <Desktop>
+                <div>
+                    <div className="fs-3 fw-bold">
+                        {weatherData.location.name}, {weatherData.location.region}
+                    </div>
+                        {weatherData.location.country} 
+                    <div className='fs-1 fw-bold'>
+                        {weatherData.current.temp_f} °F
+                    </div>
+                    <Container className='mt-4 w-60'>
+                        <Row className='my-4'>
+                            <Col className='d-flex align-items-center justify-content-center'>
+                                <FeelsLikeCard feelsLike={weatherData.current.feelslike_f} />
+                            </Col>
+                            <Col className='d-flex align-items-center justify-content-center'>
+                                <HumidityCard humidity={weatherData.current.humidity} />
+                            </Col>
+                        </Row>
+                        <Row className='my-4'>
+                            <Col className='d-flex align-items-center justify-content-center'>
+                                <PressureCard pressure={weatherData.current.pressure_mb} />
+                            </Col>
+                            <Col className='d-flex align-items-center justify-content-center'>
+                                <ConditionCard condition={weatherData.current.condition} />
+                            </Col>
+                        </Row>
+                    </Container>
+                    <div>
+                        <button className='text-black border border-dark' onClick={handleCityDelete}>Delete City</button>
+                    </div>
                 </div>
-            </div>
-            <div className='p-10'>
-                <button className='text-black' onClick={handleCityDelete}>Delete City</button>
-            </div>
-        </div>
+            </Desktop>
+            <Mobile>
+                <div >
+                    <div className="fs-3 fw-bold">
+                        {weatherData.location.name}, {weatherData.location.region}
+                    </div>
+                        {weatherData.location.country} 
+                    <div className='fs-1 fw-bold'>
+                        {weatherData.current.temp_f} °F
+                    </div>
+                    <Container className='mt-4 w-60'>
+                        <Row className=''>
+                            <Col className='d-flex align-items-center justify-content-center px-0'>
+                                <FeelsLikeCard feelsLike={weatherData.current.feelslike_f} />
+                            </Col>
+                            <Col className='d-flex align-items-center justify-content-center px-0'>
+                                <HumidityCard humidity={weatherData.current.humidity} />
+                            </Col>
+                        </Row>
+                        <Row className=''>
+                            <Col className='d-flex align-items-center justify-content-center px-0'>
+                                <PressureCard pressure={weatherData.current.pressure_mb} />
+                            </Col>
+                            <Col className='d-flex align-items-center justify-content-center px-0'>
+                                <ConditionCard condition={weatherData.current.condition} />
+                            </Col>
+                        </Row>
+                    </Container>
+                    <div>
+                        <button className='text-black border border-dark' onClick={handleCityDelete}>Delete City</button>
+                    </div>
+                </div>
+            </Mobile>
+        </>
     );
 }

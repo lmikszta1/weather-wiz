@@ -3,6 +3,18 @@ import { createCity, deleteCity } from "../../utilities/cities-service";
 import * as citiesAPI from "../../utilities/cities-api";
 import CityList from "../../components/CityList/CityList";
 import CityDetails from '../../components/CityDetails/CityDetails';
+import './AllCitiesPage.css'
+import {Form, Button, Dropdown} from 'react-bootstrap'
+import { useMediaQuery } from 'react-responsive'
+
+const Desktop = ({ children }) => {
+    const isDesktop = useMediaQuery({ minWidth: 992 })
+    return isDesktop ? children : null
+}
+const Mobile = ({ children }) => {
+    const isMobile = useMediaQuery({ maxWidth: 991 })
+    return isMobile ? children : null
+}
 
 export default function AllCitiesPage({ user }) {
     const [cities, setCities] = useState([]); 
@@ -51,31 +63,67 @@ export default function AllCitiesPage({ user }) {
         getCities();
     }, []);
 
-
     return (
-        <div className="container mx-auto pt-5">
-            <div className="flex flex-nowrap">
-                <div className="flex-1">
+        <>
+            <Desktop>
+                <div className="container mx-auto pt-5">
+                    <div className="row">
+                        <div className="col">
+                            {/* Render CityDetail component here */}
+                            <CityDetails activeCity={activeCity} handleCityDelete={handleCityDelete}/>
+                        </div>
+                        <div className="col flex-column items-center justify-start">
+                            <Form onSubmit={handleSubmit} className="d-flex align-items-baseline justify-content-start">
+                                <Form.Group className="mb-3" controlId="formBasicName">
+                                    <Form.Control name="name" value={newCityName.name} onChange={handleChange} />
+                                    <Form.Text className="text-muted text-sm">
+                                        Enter a city name, state, country, or postal code
+                                    </Form.Text>
+                                </Form.Group>
+                                <Button variant="primary" type="submit" className='w-50 border border-dark'>
+                                    Add City
+                                </Button>
+                            </Form>
+                            <aside className="mt-5 p-0 overflow-auto max-h-96 d-flex justify-content-center blue-scroll">
+                                {/* Render CityList component here */}
+                                <CityList cities={cities} activeCity={activeCity} setActiveCity={setActiveCity}/>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </Desktop>
+            <Mobile>
+                <div className="flex-column items-center justify-start mt-3">
+                    <Form onSubmit={handleSubmit} className="d-flex align-items-baseline justify-content-start">
+                        <Form.Group className="mb-3" controlId="formBasicName">
+                            <Form.Control name="name" value={newCityName.name} onChange={handleChange} />
+                            <Form.Text className="text-muted text-sm">
+                                Enter a city name, state, country, or postal code
+                            </Form.Text>
+                        </Form.Group>
+                        <Button variant="primary" type="submit" className='w-50 border border-dark'>
+                            Add City
+                        </Button>
+                    </Form>
+                    <div className="mt-3">
+                        <Dropdown>
+                            <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                                Dropdown Button
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                    {/* Render CityList component here */}
+                                    <div className="scrollable-menu">
+                                        <CityList cities={cities} activeCity={activeCity} setActiveCity={setActiveCity}/>
+                                    </div>
+                            </Dropdown.Menu>    
+                        </Dropdown>
+                    </div>
+                </div>
+                <div className="mt-5">
                     {/* Render CityDetail component here */}
                     <CityDetails activeCity={activeCity} handleCityDelete={handleCityDelete}/>
                 </div>
-                <div className="flex-1 flex flex-col items-center justify-start md:max-h-72 xl:max-h-128 lg:max-h-96">
-                    <form className="flex items-end justify-center mb-2" onSubmit={handleSubmit}>
-                        <input
-                        className="border border-gray-400 rounded px-4 py-2"
-                        placeholder="city name or zip code"
-                        name="name"
-                        value={newCityName.name}
-                        onChange={handleChange}
-                        />
-                        <button type="submit" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Add City</button>
-                    </form>
-                    <aside className="mt-5 p-0 overflow-auto w-96 max-h-fill flex justify-center">
-                        {/* Render CityList component here */}
-                        <CityList cities={cities} activeCity={activeCity} setActiveCity={setActiveCity}/>
-                    </aside>
-                </div>
-            </div>
-        </div>
+            </Mobile>
+        </>
     );
 }

@@ -11,7 +11,7 @@ export default function App() {
   const [user, setUser] = useState(getUser());
 
   return (
-    <main className="App m-h-screen overscroll-none">
+    <main className="App">
       {user ? (
         <>
           <NavBar user={user} setUser={setUser} />

@@ -1,0 +1,30 @@
+.max-h-96 {
+    max-height: 24rem;
+}
+
+.items-center{
+    align-items: center;
+}
+
+.justify-start{
+    justify-content: start;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.w-50{
+    width: 50px;
+}
+
+.blue-scroll{
+    scrollbar-color: #19C3FB #1D71F2;
+}
+
+
+.scrollable-menu{
+    max-height: 200px;
+    overflow-y: auto;
+}

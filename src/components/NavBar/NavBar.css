@@ -1,4 +1,4 @@
-.nav-btn {
+.nav-btn, .nav-link {
     text-decoration: none;
     border: 1px solid black;
     margin: 10px;
@@ -14,7 +14,7 @@
 
 }
 
-.nav-btn:hover {
+.nav-btn:hover, .nav-link:hover{
     background-color: orange;
 }
 
