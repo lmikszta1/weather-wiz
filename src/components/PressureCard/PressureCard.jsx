@@ -1,10 +1,15 @@
+import Card from "react-bootstrap/Card"
 export default function PressureCard({pressure}){
     return (
         <>
-            <div className='bg-gradient-to-b from-blue-200 to-blue-600 rounded-lg p-4 w-32 h-32 mx-auto'>
-                <h1 className='text-lg font-semibold mb-2'>Pressure</h1>
-                <p className="text-xl">{pressure} mB</p>
-            </div>
+            <Card style={{ width: '8rem', height: '8rem'}} bg="primary" border="dark">
+                <Card.Body>
+                    <Card.Title className='fw-bold fs-5'>Pressure</Card.Title>
+                    <Card.Text className="fw-semibold fs-6">
+                        <p className="mt-4">{pressure}</p>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
         </>
     )
 }

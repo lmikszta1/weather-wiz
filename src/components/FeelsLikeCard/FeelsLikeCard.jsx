@@ -1,10 +1,15 @@
+import Card from "react-bootstrap/Card"
 export default function FeelsLikeCard({feelsLike}){
     return (
         <>
-            <div className='bg-gradient-to-b from-blue-200 to-blue-600 rounded-lg p-4 w-32 h-32 mx-auto'>
-                <h1 className='text-lg font-semibold mb-2'>Feels Like</h1>
-                <p className="text-xl">{feelsLike} °F</p>
-            </div>
+            <Card style={{ width: '8rem', height: '8rem'}} bg="primary" border="dark">
+                <Card.Body>
+                    <Card.Title className='fw-bold fs-5'>Feels Like</Card.Title>
+                    <Card.Text className="fw-semibold fs-6">
+                        <p>{feelsLike} °F</p>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
         </>
     )
 }

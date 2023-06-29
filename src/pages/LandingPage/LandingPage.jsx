@@ -2,9 +2,9 @@ import './LandingPage.css';
 
 export default function LandingPage(){
     return (
-        <div className="mx-40">
-            <h1 className="mt-5 text-5xl font-title">Welcome to Weather Wiz</h1><br/>
-            <p className="text-lg whitespace-normal">
+        <div className="container">
+            <h1 className="font-title mt-5 display-4">Welcome to Weather Wiz</h1><br/>
+            <p className="lead">
             This is an intuitive weather app created by Luke Mikszta and Stephanie Talbott designed to provide users with
             accurate and reliable weather information at their fingertips. Our
             mission is to empower individuals to make informed decisions based on

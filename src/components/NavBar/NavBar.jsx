@@ -11,14 +11,14 @@ export default function NavBar({user, setUser}){
     }
 
     return (
-        <nav className='nav-bar body-font sm:w-full'>
-            <Link to="/cities" className='nav-btn'>All Cities</Link>
+        <nav className='navbar navbar-expand-sm navbar-light bg-light nav-bar body-font justify-content-center'>
+            <Link to="/cities" className='nav-btn nav-link'>All Cities</Link>
             &nbsp; | &nbsp;
-            <Link to="/" className='nav-btn'>About</Link>
+            <Link to="/" className='nav-btn nav-link'>About</Link>
             &nbsp; | &nbsp;
-            <span>Welcome, {user.name}!</span>
+            <span className='navbar-text'>Welcome, {user.name}!</span>
             &nbsp; | &nbsp;
-            <Link to="" onClick={handleLogOut} className='nav-btn'>Log Out</Link>
+            <Link to="" onClick={handleLogOut} className='nav-btn nav-link'>Log Out</Link>
         </nav>
     )
 }
