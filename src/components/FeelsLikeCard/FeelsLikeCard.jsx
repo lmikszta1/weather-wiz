@@ -24,10 +24,10 @@ export default function FeelsLikeCard({feelsLike}){
                 </Card>
             </Desktop>
             <Mobile>
-                <Card style={{ width: '80px', height: '80px'}} bg="info-subtle" border="dark">
+                <Card style={{ width: '100px', height: '100px'}} bg="info-subtle" border="dark">
                     <Card.Body>
-                        <Card.Title className='fw-bold fs-8'>Feels Like</Card.Title>
-                        <Card.Text className="fw-semibold fs-8">
+                        <Card.Title className='fw-bold fs-6'>Feels Like</Card.Title>
+                        <Card.Text className="fw-semibold fs-8 mt-3">
                             <p>{feelsLike} °F</p>
                         </Card.Text>
                     </Card.Body>

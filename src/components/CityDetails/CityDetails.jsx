@@ -131,7 +131,7 @@ export default function CityDetails({activeCity, handleCityDelete}){
                         </Row>
                     </Container>
                     <div>
-                        <button className='text-black border border-dark' onClick={handleCityDelete}>Delete City</button>
+                        <button className='text-black border border-dark btn-warning btn-lg' onClick={handleCityDelete}>Delete City</button>
                     </div>
                 </div>
             </Mobile>

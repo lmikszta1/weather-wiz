@@ -24,10 +24,10 @@ export default function HumidityCard({humidity}){
                 </Card>
             </Desktop>
             <Mobile>
-            <Card style={{ width: '80px', height: '80px'}} bg="info-subtle" border="dark">
+            <Card style={{ width: '100px', height: '100px'}} bg="info-subtle" border="dark">
                     <Card.Body>
-                        <Card.Title className='fw-bold fs-12'>Humidity</Card.Title>
-                        <Card.Text className="fw-semibold fs-6">
+                        <Card.Title className='fw-bold fs-8'>Humidity</Card.Title>
+                        <Card.Text className="fw-semibold fs-6 mt-3">
                             <p>{humidity} %</p>
                         </Card.Text>
                     </Card.Body>
