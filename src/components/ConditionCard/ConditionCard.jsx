@@ -25,7 +25,7 @@ export default function ConditionCard({condition}){
                 </Card>
             </Desktop>
             <Mobile>
-                <Card style={{ width: '80px', height: '80px'}} bg="info-subtle" border="dark">
+                <Card style={{ width: '100px', height: '100px'}} bg="info-subtle" border="dark">
                     <Card.Body>
                         <Card.Text className='d-flex align-items-center justify-content-center'>
                             <img alt="condition icon" src={condition.icon} className='w-75'/>

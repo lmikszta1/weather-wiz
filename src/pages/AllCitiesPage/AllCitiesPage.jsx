@@ -94,7 +94,7 @@ export default function AllCitiesPage({ user }) {
             </Desktop>
             <Mobile>
                 <div className="flex-column items-center justify-start mt-3">
-                    <Form onSubmit={handleSubmit} className="d-flex align-items-baseline justify-content-start">
+                    <Form onSubmit={handleSubmit} className="d-flex align-items-baseline justify-content-start mx-2">
                         <Form.Group className="mb-3" controlId="formBasicName">
                             <Form.Control name="name" value={newCityName.name} onChange={handleChange} />
                             <Form.Text className="text-muted text-sm">
