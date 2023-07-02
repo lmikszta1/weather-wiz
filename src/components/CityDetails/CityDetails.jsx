@@ -113,7 +113,7 @@ export default function CityDetails({activeCity, handleCityDelete}){
                         {weatherData.current.temp_f} °F
                     </div>
                     <Container className='mt-4 w-60'>
-                        <Row className=''>
+                        <Row>
                             <Col className='d-flex align-items-center justify-content-center px-0'>
                                 <FeelsLikeCard feelsLike={weatherData.current.feelslike_f} />
                             </Col>
@@ -121,7 +121,7 @@ export default function CityDetails({activeCity, handleCityDelete}){
                                 <HumidityCard humidity={weatherData.current.humidity} />
                             </Col>
                         </Row>
-                        <Row className=''>
+                        <Row>
                             <Col className='d-flex align-items-center justify-content-center px-0'>
                                 <PressureCard pressure={weatherData.current.pressure_mb} />
                             </Col>
