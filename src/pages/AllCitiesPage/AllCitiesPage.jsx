@@ -24,9 +24,9 @@ export default function AllCitiesPage({ user }) {
     async function handleSubmit(event) {
         event.preventDefault();
         const newCity = {
-        name: newCityName.name,
-        user: user._id,
-    };
+            name: newCityName.name,
+            user: user._id,
+        };
         const city = await createCity(newCity);
         setCities([...cities, city]);
         console.log("these are all the cities", cities);
@@ -36,8 +36,8 @@ export default function AllCitiesPage({ user }) {
 
     function handleChange(event) {
         setNewCityName({
-        ...newCityName,
-        [event.target.name]: event.target.value,
+            ...newCityName,
+            [event.target.name]: event.target.value,
         });
         console.log("newNotetext in handleChange", newCityName);
     }
@@ -108,7 +108,7 @@ export default function AllCitiesPage({ user }) {
                     <div className="mt-3">
                         <Dropdown>
                             <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                                Dropdown Button
+                                Cities
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
                                     {/* Render CityList component here */}
