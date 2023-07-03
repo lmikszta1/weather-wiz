@@ -10,7 +10,7 @@ async function createCity(req, res) {
 }
 
 async function index(req, res) {
-    const cities = await City.find({});
+    const cities = await City.find({user: req.user._id});
     res.json(cities);
 }
 
