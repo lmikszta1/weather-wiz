@@ -1,6 +1,6 @@
 import sendRequest from "./send-request";
 // we need a base path that we can use to refer our requests to the location of our routes
-const BASE_URL = "/api/cities";
+const BASE_URL = "https://weatherwiz-api.onrender.com/api/cities";
 
 export async function createCity(cityData) {
     return sendRequest(BASE_URL, "POST", cityData);
