@@ -55,7 +55,7 @@
 
 
 ## Getting Started
-Deployed Application:
+Deployed Application: https://weatherwiz.onrender.com/
 
 
 ## Icebox Features
