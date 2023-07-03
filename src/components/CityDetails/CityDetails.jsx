@@ -28,7 +28,7 @@ export default function CityDetails({activeCity, handleCityDelete}){
         console.log("This is activeCity in useEffect in CityDetails", activeCity);
         if (activeCity) {
         fetch(
-            `http://api.weatherapi.com/v1/current.json?key=d423372cc92443e6a8d201342232306&q=${activeCity.name}&days=3&aqi=yes`
+            `https://api.weatherapi.com/v1/current.json?key=d423372cc92443e6a8d201342232306&q=${activeCity.name}&days=3&aqi=yes`
         )
             .then((response) => {
             if (response.ok) {
